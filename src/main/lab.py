@@ -73,7 +73,7 @@ query = "Is Apple a good brand?"
 results = collection.query(query_texts=[query], n_results=2)
 docs_retrieved = results["documents"]
 number_of_docs = len(docs_retrieved[0])
-print(number_of_docs)
+# print(number_of_docs)
 
 """
     The query returns both the fruit and company documents, the former of which is not relevant to the query.
@@ -101,7 +101,7 @@ ner_pipeline = pipeline("ner", model=ner_model, tokenizer=tokenizer)
 
 entities = ner_pipeline(query)
 
-print(entities)
+# print(entities)
 
 """
     In this case, one entity was detected in the query and its data saved to a dictionary. We now have all the
@@ -111,7 +111,7 @@ print(entities)
 results = collection.query(query_texts=[query], n_results=2, where={"word": entities[0]["word"]})
 docs_retrieved = results["documents"]
 number_of_docs = len(docs_retrieved[0])
-print(number_of_docs, docs_retrieved[0])
+# print(number_of_docs, docs_retrieved[0])
 
 """
     The results of the query have now been filtered to only include the Apple company document.
